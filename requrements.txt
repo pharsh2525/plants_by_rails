@@ -1,3 +1,9 @@
+Dataset
+We used web scapper to get a csv file of the data on https://piante.ca/
+We plan to categorize the plants into plant types and use their pricings to allow for orders to be made.
+The data is stored like a product, category, name, description and price.
+Data will be pulled from a csv file.
+
 Models
 
 Users Table
