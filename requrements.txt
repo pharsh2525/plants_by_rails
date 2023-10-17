@@ -1,0 +1,17 @@
+Models
+
+Users Table
+id, first_name, last_name, email
+
+Plants Table
+id, name, description, price, stock, category_id
+
+Categories Table
+id, name
+
+Orders Table
+id, user_id
+
+Order_Item table(Many to Many)
+order_id, plant_id
+
