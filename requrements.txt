@@ -1,23 +1,47 @@
 Dataset
-We used web scapper to get a csv file of the data on https://piante.ca/
-We plan to categorize the plants into plant types and use their pricings to allow for orders to be made.
-The data is stored like a product, category, name, description and price.
+The data has been web scraped from the website https://piante.ca/ into a csv file. 
+It comprises details of various plants including their name, description, category, and price.
+
+The intention is to categorize the plants into various plant species and then allow for the process
+of orders being made.
+
 Data will be pulled from a csv file.
 
+
 Models
+Users Table:
+id,
+first_name,
+last_name,
+email
 
-Users Table
-id, first_name, last_name, email
+Plants Table:
+id,
+name,
+description,
+price,
+stock,
+category_id
 
-Plants Table
-id, name, description, price, stock, category_id
+Categories Table:
+id,
+name
 
-Categories Table
-id, name
+Orders Table:
+id,
+user_id
 
-Orders Table
-id, user_id
+Order_Item Table:
+order_id,
+plant_id
 
-Order_Item table(Many to Many)
-order_id, plant_id
+
+A user can have multiple orders, but each order belongs to a single user.
+
+Each order can have multiple plants, and each plant can be a part of multiple orders. This many-to-many relationship is managed through the Order_Item table.
+
+Each plant belongs to a category, allowing for easy categorization and search functionality based on plant types.
+
+
+
 
