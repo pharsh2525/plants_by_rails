@@ -12,22 +12,13 @@ csv_data = File.read(filename)
 
 plants = CSV.parse(csv_data, headers: true, encoding: 'utf-8')
 
-plants.each do |x|
-  category_name = x['category']
-  plant_name = x['name']
-  description = x['description']
-  price =  x['price'].gsub(/[$,]/, '').to_f
-
-  category = Category.find_or_create_by(name: category_name)
-
-  # Print the category and plant details for debugging
-  puts "Category: #{category_name}"
-  puts "Plant: #{plant_name}, Description: #{description}, Price: #{price}"
+plants.each do |pl|
+  category = Category.find_or_create_by(name: pl['category'])
 
   plant = category.plants.create(
-    name: plant_name,
-    description:,
-    price:,
+    name: pl['name'],
+    description: pl['description'],
+    price: pl['price'].gsub('$', ''),
     stock: rand(1..100)
   )
 
