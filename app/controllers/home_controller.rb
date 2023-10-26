@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @plants = Plant.limit(15)
+    @plants = Plant.all
   end
 end
