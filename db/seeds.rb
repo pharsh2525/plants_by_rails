@@ -1,8 +1,10 @@
 require 'csv'
 
+Plant.delete_all
 Category.delete_all
 
 ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='categories';")
+ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='plants';")
 
 filename = Rails.root.join('db/plant_store.csv')
 

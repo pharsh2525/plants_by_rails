@@ -1,0 +1,11 @@
+<div class="container">
+<% @plants.each do |plant| %>
+<div class="d-flex justify-content-between border m-1 p-5">
+  <p><%= link_to plant.name, plant %></p>
+  <p><%= plant.price %></p>
+</div>
+<% end %>
+<p>
+<%= link_to "See All Plants", plants_path%>
+</p>
+</div>
