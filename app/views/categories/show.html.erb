@@ -1,7 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @category %>
-
+<h2>Plants in this Category:</h2>
+<ul>
+  <% @plants.each do |plant| %>
+    <li>
+      <%= plant.name %> <!-- Or whatever attributes you want to display -->
+      <!-- Link to the individual plant's show page -->
+      <%= link_to 'View', plant_path(plant) %>
+    </li>
+  <% end %>
+</ul>
 <div>
   <%= link_to "Edit this category", edit_category_path(@category) %> |
   <%= link_to "Back to categories", categories_path %>

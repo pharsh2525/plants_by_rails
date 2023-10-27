@@ -1,22 +1,25 @@
-<%= form_with(model: order) do |form| %>
+<%= form_with model: order do |form| %>
+
   <% if order.errors.any? %>
-    <div style="color: red">
+    <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
       <ul>
-        <% order.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+  <div class="field">
+    <%= form.label :email %>
+    <%= text_field_tag :email %>
   </div>
 
-  <div>
+  <%= hidden_field_tag :plant_id, @plant.id %>
+
+  <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
