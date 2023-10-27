@@ -17,11 +17,11 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categories
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Small", '#', class: "dropdown-item" %> <!-- Replace '#' with the appropriate path -->
-            <%= link_to "Medium", '#', class: "dropdown-item" %> <!-- Replace '#' with the appropriate path -->
-            <%= link_to "Large", '#', class: "dropdown-item" %> <!-- Replace '#' with the appropriate path -->
-          </div>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <% @categories.each do |category| %>
+      <%= link_to category.name.capitalize, category_path(category), class: "dropdown-item" %>
+    <% end %>
+  </div>
         </li>
         <li>
           <%= link_to "About us", permalink_path(permalink: 'about'), class: "nav-link" %>
