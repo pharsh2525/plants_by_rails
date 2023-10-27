@@ -23,11 +23,15 @@
             <%= link_to "Large", '#', class: "dropdown-item" %> <!-- Replace '#' with the appropriate path -->
           </div>
         </li>
+        <li>
+          <%= link_to "About us", permalink_path(permalink: 'about'), class: "nav-link" %>
+        </li>
       </ul>
     </div>
     <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <button class="btn btn-outline-success m-2" type="submit">Login</button>
   </nav>
 </header>

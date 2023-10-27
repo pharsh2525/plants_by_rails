@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pages, except: [:show]
+  get '/pages/:permalink' => 'pages#permalink', as: 'permalink'
   resources :order_items
   resources :orders
   resources :categories
