@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-  before_action :set_plant, only: %i[ show edit update destroy ]
+  before_action :set_plant, only: %i[show edit update destroy]
 
   # GET /plants or /plants.json
   def index
@@ -8,6 +8,7 @@ class PlantsController < ApplicationController
 
   # GET /plants/1 or /plants/1.json
   def show
+    @plant = Plant.find(params[:id])
   end
 
   # GET /plants/new
@@ -16,8 +17,7 @@ class PlantsController < ApplicationController
   end
 
   # GET /plants/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /plants or /plants.json
   def create
@@ -25,7 +25,7 @@ class PlantsController < ApplicationController
 
     respond_to do |format|
       if @plant.save
-        format.html { redirect_to plant_url(@plant), notice: "Plant was successfully created." }
+        format.html { redirect_to plant_url(@plant), notice: 'Plant was successfully created.' }
         format.json { render :show, status: :created, location: @plant }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class PlantsController < ApplicationController
   def update
     respond_to do |format|
       if @plant.update(plant_params)
-        format.html { redirect_to plant_url(@plant), notice: "Plant was successfully updated." }
+        format.html { redirect_to plant_url(@plant), notice: 'Plant was successfully updated.' }
         format.json { render :show, status: :ok, location: @plant }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class PlantsController < ApplicationController
     @plant.destroy
 
     respond_to do |format|
-      format.html { redirect_to plants_url, notice: "Plant was successfully destroyed." }
+      format.html { redirect_to plants_url, notice: 'Plant was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_plant
-      @plant = Plant.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def plant_params
-      params.require(:plant).permit(:name, :description, :price, :stock, :category_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_plant
+    @plant = Plant.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def plant_params
+    params.require(:plant).permit(:name, :description, :price, :stock, :category_id)
+  end
 end

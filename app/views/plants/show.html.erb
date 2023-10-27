@@ -2,6 +2,8 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @plant %>
+<%= link_to 'Buy', new_order_path(plant_id: @plant.id), class: "btn btn-primary" %>
+
 
 <div>
   <%= link_to "Edit this plant", edit_plant_path(@plant) %> |
