@@ -1,6 +1,36 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @order %>
+<h1>Order Details for Order ID: <%= @order.id %></h1>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user.email %>
+</p>
+
+<h2>Order Items</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Plant</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order_items.each do |order_item| %>
+      <tr>
+        <td><%= order_item.plant.name %></td>
+        <td><%= order_item.quantity %></td>
+        <td><%= number_to_currency(order_item.unit_price) %></td>
+        <td><%= number_to_currency(order_item.unit_price * order_item.quantity) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Back to Orders", orders_path, class: "btn btn-secondary mt-4" %>
+
 
 <div>
   <%= link_to "Edit this order", edit_order_path(@order) %> |
