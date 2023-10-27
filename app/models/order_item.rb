@@ -2,5 +2,5 @@ class OrderItem < ApplicationRecord
   belongs_to :order
   belongs_to :plant
 
-  validates :quantitiy, numericality: { only_integers: true }
+  validates :quantity, numericality: { only_integers: true }
 end
