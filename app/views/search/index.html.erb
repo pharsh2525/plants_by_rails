@@ -1,0 +1,35 @@
+<h1 class="text-center"><%= pluralize(@plants.count, "Result")%></h1>
+<%= render 'search/form' %>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= sort_link(@query, :name, "Name", default_order: :asc) %></th>
+        <th><%= sort_link(@query, :price, "Price") %></th>
+        <th><%= sort_link(@query, :category_id, "Category") %></th>
+        <th><%= sort_link(@query, :created_at, "Created At") %></th>
+        <th><%= sort_link(@query, :description, "Description") %></th>
+        <th><%= sort_link(@query, :stock, "Stock") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @plants.each do |plant| %>
+      <tr>
+        <td><%= link_to plant.name, plant %></td>
+        <td><%= plant.price %></td>
+        <td><% if plant.category_id == 1 %>
+              <%= "Small" %>
+            <% elsif plant.category_id == 2 %>
+              <%= "Medium" %>
+            <% elsif plant.category_id == 3 %>
+              <%= "Large" %>
+          <% end %></td>
+        <td><%= plant.created_at.strftime('%B %d, %Y') %></td>
+        <td><%= plant.description %></td>
+        <td><%= plant.stock %> left</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

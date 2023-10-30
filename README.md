@@ -1,5 +1,9 @@
 # Plants by Rails
 
+## Latest changes
+
+- Added search function
+
 This is the data project for the full-stack web dev. Creates a CMS of a plant store.
 The data has been web scraped from the website https://piante.ca/ into a csv file.
 It comprises details of various plants including their name, description, category, and price.
