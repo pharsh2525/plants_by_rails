@@ -18,17 +18,21 @@
             Categories
           </a>
            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <% @categories.each do |category| %>
-      <%= link_to category.name.capitalize, category_path(category), class: "dropdown-item" %>
-    <% end %>
-  </div>
+            <% @categories.each do |category| %>
+              <%= link_to category.name.capitalize, category_path(category), class: "dropdown-item" %>
+            <% end %>
+            </div>
         </li>
         <li>
           <%= link_to "About us", permalink_path(permalink: 'about'), class: "nav-link" %>
         </li>
       </ul>
     </div>
+    <div>
     <%= render 'search/form' %>
+    </div>
     <button class="btn btn-outline-success m-2" type="submit">Login</button>
   </nav>
 </header>
+</body>
+</html>
